@@ -1,23 +1,15 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+require_once 'Framework/Modele.php';
 
-/**
- * Description of Praticien
- *
- * @author braba
- */
-class Praticien {
+
+class Praticien extends Modele {
     // Requete SQL contenant l'ensemble des champs de la table praticien + lib_specialite de la table specialite
     private $sqlPraticien = 'SELECT PR.id_praticien as idPraticien, nom_praticien as nomPraticien, 
         prenom_praticien as prenomPraticien, adresse_praticien as adressePraticien, 
         cp_praticien as cpPraticien, ville_praticien as villePraticien, 
-        coef_notoriete as coefNotoriete, lib_specialite as libSpecialite 
-        FROM praticien PR JOIN posseder PO ON PR.id_praticien=PO.id_praticien 
-        JOIN specialite SP ON PO.id_specialite=SP.id_specialite';
+        coef_notoriete as coefNotoriete, lib_type_praticien as libTypePraticien
+        FROM praticien PR JOIN type_praticien TY ON PR.id_type_praticien=TY.id_type_praticien';
     
         // Renvoie la liste des praticiens
     public function getPraticiens() {
