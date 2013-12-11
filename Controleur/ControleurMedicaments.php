@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Framework/Controleur.php';
+require_once 'Controleur/ControleurSecurise.php';
 require_once 'Modele/Medicament.php';
 
 // Contrôleur des actions liées aux médicaments

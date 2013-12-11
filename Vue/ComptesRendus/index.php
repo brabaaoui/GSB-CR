@@ -44,7 +44,7 @@ require 'Vue/_Commun/navigation.php';
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                            <a href="comptesrendus/supprimer/" class="btn btn-danger">Supprimer</a>
+                                            <a href="comptesrendus/supprimer/<?= $this->nettoyer($compteRendu['idRapport']) ?>" class="btn btn-danger">Supprimer</a>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->

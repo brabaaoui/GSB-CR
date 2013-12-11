@@ -44,6 +44,20 @@ class ControleurComptesRendus extends ControleurSecurise {
             
         }
     }
+   
+    public function supprimer () {
+        if ($this->requete->existeParametre("id"))
+        {
+            $idCompteRendu = $this->requete->getParametre("id");
+            $this->comptesRendus->deleteCompteRendu($idCompteRendu);
+            $this->index();
+        }
+            
+    }
+    
+    public function modifier () {
+        
+    }
 }
 
 ?>
