@@ -19,10 +19,20 @@ class Praticien extends Modele {
         return $praticiens;
     }
     
-    public function getPraticiensTypee($constraint) {
-        $sql = $this->sqlPraticien . " WHERE PR.id_type_praticien=" . $constraint . ' order by nom_praticien';
+    public function getPraticiensTypee($type, $nom, $ville) {
+        $constraint = ' WHERE ';
+        if ($nom <> null)
+            $constraint .= "nom_praticien LIKE '%$nom%' AND ";
+        if ($ville <> null)
+            $constraint .= "ville_praticien LIKE '%$ville%' AND ";
+        $sql = $this->sqlPraticien . $constraint . "PR.id_type_praticien=" . $type . ' order by nom_praticien';
         $praticiens = $this->executerRequete($sql);
-        return $praticiens;
+        
+        if ($praticiens->rowCount() >= 1)
+            return $praticiens; // Accès à la première ligne de résultat
+        else
+            throw new Exception("Aucun praticien ne correspond à la recherche");
+        
     }
     
   

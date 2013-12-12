@@ -21,9 +21,9 @@ class ControleurComptesRendus extends ControleurSecurise {
         $this->comptesRendus = new CompteRendu();
     }
     
-    public function index() {
+    public function index($msg = null) {
         $comptesRendus = $this->comptesRendus->getCompteRendu(); 
-        $this->genererVue(array('comptesRendus' => $comptesRendus), "index");
+        $this->genererVue(array('comptesRendus' => $comptesRendus, 'msgConfirmation' => $msg), "index");
     }
     
     public function ajout () {
@@ -40,8 +40,8 @@ class ControleurComptesRendus extends ControleurSecurise {
             $date = $this->requete->getParametre("date");
             $idVisiteur = $this->requete->getSession()->getAttribut("idVisiteur");
             $this->comptesRendus->ajouterCompteRendu($idPraticien, $idVisiteur , $date, $motif, $bilan);
-            $this->index();
-            
+            $msg = "Le compte-rendu a bien été ajouté  !";
+            $this->index($msg);
         }
     }
    
@@ -50,7 +50,8 @@ class ControleurComptesRendus extends ControleurSecurise {
         {
             $idCompteRendu = $this->requete->getParametre("id");
             $this->comptesRendus->deleteCompteRendu($idCompteRendu);
-            $this->index();
+            $msg = "Le compte-rendu a bien été supprimé !";
+            $this->index($msg);
         }
             
     }

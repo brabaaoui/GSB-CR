@@ -91,5 +91,7 @@ class Vue
         // Convertit les caractères spéciaux en entités HTML
         return htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8', false);
     }
+    
+    
 
 }

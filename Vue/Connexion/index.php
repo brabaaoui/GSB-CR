@@ -1,6 +1,6 @@
 <?php $this->titre = "Accueil"; ?>
 
-
+<?php if $this->gestSession ?>
  <h2 class="text-center">Connexion à GSB-CR</h2>
     <div class="well">
         <form class="form-signin form-horizontal" role="form" action="connexion/connecter" method="post">

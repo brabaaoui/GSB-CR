@@ -6,6 +6,14 @@ require 'Vue/_Commun/navigation.php';
 ?>
 
 <div class="container">
+    
+    <?php if ($msgConfirmation <> null): ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" >X</button> 
+        <?= $msgConfirmation ?>
+    </div>
+    <?php endif; ?>
+    
     <h2 class="text-center">Liste de vos comptes-rendus de visite</h2>
             <div class="table-responsive">
             <table class="table table-hover table-condensed">

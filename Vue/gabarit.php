@@ -23,5 +23,13 @@
         <script src="Librairies/jquery/jquery-1.10.2.min.js"></script>
         <!-- Plugin JavaScript Boostrap -->
         <script src="Librairies/bootstrap/js/bootstrap.min.js"></script>
+
+        <script>
+            $(function() {
+                $('.close').click(function(e) {
+                    $(this).parent().hide();
+                });
+            });
+        </script>
     </body>
 </html>
